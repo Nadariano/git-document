@@ -1,1 +1,4 @@
 Hello Git! ☺
+
+***Notes:
+1. When a new branch created, a pointer will be stuck onto the latest commit that you're on.
