@@ -2,3 +2,4 @@ Hello Git! ☺
 
 ***Notes:
 1. When a new branch created, a pointer will be stuck onto the latest commit that you're on.
+3. The command [git commit -a -m 'xxx'] means that you add all the changes, then commit
