@@ -2,3 +2,5 @@ Hello Git! ☺
 
 ***Notes:
 1. When a new branch created, a pointer will be stuck onto the latest commit that you're on.
+2. When checkout to another branch, the HEAD will point to that branch.
+	(Ex: Jumping from branch 'main' to 'testing': <git checkout testing> => HEAD -> (main, testing))
