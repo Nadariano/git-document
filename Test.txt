@@ -2,14 +2,25 @@ Hello Git! ☺
 
 ***Notes:
 1. When a new branch created, a pointer will be stuck onto the latest commit that you're on.
-3. The command [git commit -a -m 'xxx'] means that you add all the changes, then commit
+3. The command [git commit -a -m '<message>'] means that you add all the changes, then commit
 4. The command [git log --oneline --decorate --graph --all] print out the history of your commits, showing where your branch pointers are and how your history has diverged.
-5. UNDO something:
- 5.1. Unstaging a Staged file: [git reset HEAD <file>]: 
+5. UNDO somethings:
+ 5.1. Unstaging a Staged file: [git reset HEAD <file>] / [git restore --staged <file>]: 
    Useful for separating changes into commits. It will remove the selected file from the stage, therefore you can save it for later commits.
- 5.2. (DANGEROUS) Unmodifying a Modified file: [git checkout -- <file>]: 
+ 5.2. (!DANGEROUS!) Unmodifying a Modified file (discard changes): 
+   [git checkout -- <file>]/[git restore <file>]: 
    Any local changes you made to that file are gone, Git just replaced that file with the last staged or committed version.
- 5.3. Redo/rename a commit BEFORE pushing: [git commit --amend]:
+ 5.3. Redo/rename a commit BEFORE pushing: [git commit --amend]
    This command takes your staging area and uses it for the commit. If you’ve made no changes since
 your last commit (for instance, you run this command immediately after your previous commit), then your snapshot will look exactly the same, and all you’ll change is your commit message.
    Only amend commits that are still local and have not been pushed somewhere. Amending previously pushed commits and force pushing the branch will cause problems for your collaborators.
+6. Working with remotes:
+  6.1. Showing all remotes: [git remote -v].
+  6.2. Adding remote repositories: [git remote add <shortname> <url>].
+  6.3. Fetching & Pulling:
+    6.3.1. Downloading datas into local repo without merge: [git fetch <remote>].
+	 It’s important to note that the git fetch command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You have to merge it manually into your work when you’re ready.
+    6.3.2. Downloading & merging into local repo: [git pull <remote>].
+  6.4. Pushing to remotes: [git push <remotename> <branchname>].
+    6.4.1. If you and someone else clone at the same time and they push upstream, and then you push upstream, your push will rightly be rejected => Fetch first before pushing.
+  6.5. Inspecting remotes: [git remote show <remotename>]
